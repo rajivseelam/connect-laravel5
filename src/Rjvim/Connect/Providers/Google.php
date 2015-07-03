@@ -34,7 +34,7 @@ class Google implements ProviderInterface{
 	public function prepareClient($client, $scope, $state = 'default')
 	{
 
-		$client = Config::get('connect::google.clients.'.$client);
+		$client = Config::get('rjvim.connect.google.clients.'.$client);
 
 		if(is_array($scope))
 		{
@@ -42,12 +42,12 @@ class Google implements ProviderInterface{
 
 			foreach($scope as $s)
 			{
-				$scopes = array_merge(Config::get('connect::google.scopes.'.$s),$scopes);
+				$scopes = array_merge(Config::get('rjvim.connect.google.scopes.'.$s),$scopes);
 			}
 		}
 		else
 		{
-			$scopes = Config::get('connect::google.scopes.'.$scope);
+			$scopes = Config::get('rjvim.connect.google.scopes.'.$scope);
 		}
 
 		$gClient = new Google_Client();
@@ -57,13 +57,13 @@ class Google implements ProviderInterface{
 		$gClient->setRedirectUri($client['redirect_uri']);
 
 		
-		if(Config::get('connect::offline'))
+		if(Config::get('rjvim.connect.offline'))
 		{
 			$gClient->setAccessType('offline');
 		}
 
 		
-		if(Config::get('connect::force'))
+		if(Config::get('rjvim.connect.force'))
 		{
 			$gClient->setApprovalPrompt('force');
 		}

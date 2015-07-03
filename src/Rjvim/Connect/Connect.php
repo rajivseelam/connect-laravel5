@@ -57,12 +57,12 @@ class Connect {
 		//Then log in a user
 		$this->sentry->login($user);
 
-		if(Config::get('connect::ajax'))
+		if(Config::get('rjvim.connect.ajax'))
 		{
 			return Response::json('success',200);
 		}
 
-		return Redirect::route(Config::get('connect::route'));
+		return Redirect::route(Config::get('rjvim.connect.route'));
 	}
 
 	/**
