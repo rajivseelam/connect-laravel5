@@ -12,17 +12,6 @@ class ConnectServiceProvider extends ServiceProvider {
 	protected $defer = false;
 
 	/**
-	 * Bootstrap the application events.
-	 *
-	 * @return void
-	 */
-	public function boot()
-	{
-		$this->package('rjvim/connect-laravel5');
-
-	}
-
-	/**
 	 * Register the service provider.
 	 *
 	 * @return void
@@ -39,8 +28,6 @@ class ConnectServiceProvider extends ServiceProvider {
 			$config     => config_path('rjvim.connect.php'),
 			$migrations => $this->app->databasePath().'/migrations',
 		]);
-
-		$this->app->register('Cartalyst\Sentry\SentryServiceProvider');
 		
 	 	// Register 'connect'
 	    $this->app['connect'] = $this->app->share(function($app)
@@ -51,16 +38,9 @@ class ConnectServiceProvider extends ServiceProvider {
         	return $connect;
 	    });
 
+	    $this->app->alias('connect', 'Rjvim\Connect\Connect');
+
 	}
 
-	/**
-	 * Get the services provided by the provider.
-	 *
-	 * @return array
-	 */
-	public function provides()
-	{
-		return array();
-	}
 
 }
