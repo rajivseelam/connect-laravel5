@@ -16,8 +16,8 @@
         "illuminate/support": "5.*"
     },
     "autoload": {
-        "psr-4": {
-            "Rjvim\\Connect\\": "src/"
+        "psr-0": {
+            "Rjvim\\Connect": "src/"
         }
     },
     "minimum-stability": "dev"
