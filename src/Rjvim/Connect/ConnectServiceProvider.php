@@ -18,7 +18,7 @@ class ConnectServiceProvider extends ServiceProvider {
 	 */
 	public function boot()
 	{
-		$this->package('rjvim/connect');
+		$this->package('rjvim/connect-laravel5');
 
 	}
 
@@ -29,6 +29,17 @@ class ConnectServiceProvider extends ServiceProvider {
 	 */
 	public function register()
 	{
+
+		$config     = realpath(__DIR__.'/../../../config/rjvim.connect.php');
+		$migrations = realpath(__DIR__.'/../../migrations');
+
+		$this->mergeConfigFrom($config, 'rjvim.connect');
+
+		$this->publishes([
+			$config     => config_path('rjvim.connect.php'),
+			$migrations => $this->app->databasePath().'/migrations',
+		]);
+
 		$this->app->register('Cartalyst\Sentry\SentryServiceProvider');
 		
 	 	// Register 'connect'
@@ -40,12 +51,6 @@ class ConnectServiceProvider extends ServiceProvider {
         	return $connect;
 	    });
 
-    	$this->app->booting(function()
-        {
-            $loader = \Illuminate\Foundation\AliasLoader::getInstance();
-            $loader->alias('Connect', 'Rjvim\Connect\ConnectFacade');
-
-        });
 	}
 
 	/**

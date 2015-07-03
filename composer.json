@@ -1,6 +1,8 @@
 {
     "name": "rjvim/connect-laravel5",
-    "description": "",
+    "description": "Connect - Sentry - OAuth",
+    "homepage": "https://github.com/rajivseelam/connect-laravel5",
+    "license": "MIT",
     "authors": [
         {
             "name": "Rajiv Seelam",
@@ -9,20 +11,18 @@
     ],
     "require": {
         "php": ">=5.4.0",
-        "illuminate/support": "5.*",
-        "cartalyst/sentry": "2.1.*",
-        "google/apiclient": "1.0.*@beta",
-        "knplabs/github-api": "~1.2",
-        "facebook/php-sdk-v4" : "4.0.*",
-        "league/oauth2-client": "~0.3"
+        "illuminate/config": "5.*",
+        "illuminate/database": "5.*",
+        "illuminate/support": "5.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.*",
+        "orchestra/testbench": "3.0.*"
     },
     "autoload": {
-        "classmap": [
-            "src/migrations"
-        ],
-        "psr-0": {
+        "psr-4": {
             "Rjvim\\Connect\\": "src/"
         }
     },
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
