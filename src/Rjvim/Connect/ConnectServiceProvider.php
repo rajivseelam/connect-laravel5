@@ -38,8 +38,6 @@ class ConnectServiceProvider extends ServiceProvider {
         	return $connect;
 	    });
 
-	    $this->app->alias('connect', 'Rjvim\Connect\Connect');
-
 	}
 
 
