@@ -166,6 +166,7 @@ class Connect {
 			        'email'       => $data['email'],
 			        'first_name'  => $data['first_name'],
 			        'last_name'   => $data['last_name'],
+			        'name'   => $data['name'],
 			        'password'    => $password,
 			        'activated'   => $activate,
 			    ));

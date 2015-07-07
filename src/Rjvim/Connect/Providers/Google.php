@@ -112,6 +112,7 @@ class Google implements ProviderInterface{
 		$result['first_name'] = $person->getName()->getGivenName();
 		$result['last_name'] = $person->getName()->getFamilyName();
 		$result['username'] = $result['first_name'].' '.$result['last_name'];
+		$result['name'] = $result['first_name'].' '.$result['last_name'];
 		$result['url'] = $person->getUrl();
 		$result['image'] = $person->getImage()->getUrl();
 

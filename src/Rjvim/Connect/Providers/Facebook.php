@@ -182,6 +182,7 @@ class Facebook implements ProviderInterface{
 			}
 
 			$result['username'] = $user_profile->getFirstName().' '.$user_profile->getLastName();
+			$result['name'] = $result['username'];
 
 			$result['access_token'] = $session->getLongLivedSession()->getToken();
 
