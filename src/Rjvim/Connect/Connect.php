@@ -62,7 +62,7 @@ class Connect {
 			return Response::json('success',200);
 		}
 
-		return Redirect::route(Config::get('rjvim.connect.route'));
+		return redirect()->intended(Config::get('rjvim.connect.route'));
 	}
 
 	/**
